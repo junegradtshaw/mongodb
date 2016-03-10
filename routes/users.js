@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../db/knex')
+// var knex = require('../db/knex')
 var db = require('../src/db')
 var bcrypt = require('bcrypt')
 

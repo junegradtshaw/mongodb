@@ -5,9 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('cookie-session');
+var db = require('./db/db');
 require('dotenv').load();
 
-
+var mongoose = require('mongoose');
+var test = require('./routes/test');
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
 var authors = require('./routes/authors');
@@ -69,6 +71,7 @@ app.use(function (req, res, next) {
 })
 
 app.use('/', routes);
+app.use('/test', test)
 app.use('/auth', auth);
 app.use('/authors', authors);
 app.use('/books', books);
