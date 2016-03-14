@@ -1,8 +1,7 @@
-include layout
+extends layout
 
-  a(href="/authors")
-    div.left
-      h1.center Authors
-  a(href="/books")
-    div.right
-      h1.center Books
+block content
+  each result in results
+    h3 #{result.num}
+    h3 #{result.description}
+    br

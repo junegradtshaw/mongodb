@@ -4,10 +4,10 @@ var Schema   = mongoose.Schema;
 var Todo = new Schema({
     user_id    : String,
     content    : String,
-    updated_at : Date
+    updated_at : String
 });
 
-var Todo = mongoose.model( 'todos', Todo)
+var TodoModel = mongoose.model('todo', Todo)
 console.log('MONGOOSE', mongoose.connection);
 
 // var User = db.model('User');
@@ -15,10 +15,20 @@ console.log('MONGOOSE', mongoose.connection);
 // var u = new User();
 // u.name = 'Foo';
 // u.save();
+// Creating one user.
+var johndoe = new Todo ({
+  user_id:"23", content: "23content", updated_at : "23date"});
 
-Todo.find({user_id:"June"}, function (err,docs) {
-    console.log(docs);
+// Saving it to the database.
+johndoe.save(function (err, results) {if (err) console.log ('Error on save!')
+else {
+  console.log('Save success!');
+}});
+
+TodoModel.find().exec( function (err,docs) {
+  console.log('db.js err: ', err);
+    console.log("db.js docs:", docs);
 });
 
 
-module.exports = Todo;
+module.exports = TodoModel;

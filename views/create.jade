@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 create
+    form(action="/create" method="POST")
+      input(type="number" name="num")
+      input(type="text" name="description")
+      input(type="submit")
